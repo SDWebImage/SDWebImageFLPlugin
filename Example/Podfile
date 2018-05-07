@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SDWebImageFLPlugin_Example' do
+  pod 'SDWebImageFLPlugin', :path => '../'
+
+  target 'SDWebImageFLPlugin_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
