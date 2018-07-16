@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
 This project adds a plugin for FLAnimatedImage into SDWebImage, for loading animated images. FLAnimatedImage is a performant library that handles animated images rendering, while SDWebImage takes care of downloading, caching and loading the images.
                        DESC
 
-  s.homepage         = 'https://github.com/DreamPiggy/SDWebImageFLPlugin'
+  s.homepage         = 'https://github.com/SDWebImage/SDWebImageFLPlugin'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DreamPiggy' => 'lizhuoli1126@126.com' }
-  s.source           = { :git => 'https://github.com/DreamPiggy/SDWebImageFLPlugin.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SDWebImage/SDWebImageFLPlugin.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
