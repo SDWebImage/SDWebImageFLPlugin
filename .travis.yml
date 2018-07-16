@@ -24,8 +24,8 @@ before_install:
 script:
   - set -o pipefail
 
-  - echo Check if the library described by the podspec can be built
-  - pod lib lint
+#  - echo Check if the library described by the podspec can be built
+#  - pod lib lint
 
   - echo Build example
   - xcodebuild build -workspace Example/SDWebImageFLPlugin.xcworkspace -scheme SDWebImageFLPlugin-Example -sdk iphonesimulator -destination 'name=iPhone 6s' ONLY_ACTIVE_ARCH=NO | xcpretty -c

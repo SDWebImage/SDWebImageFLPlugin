@@ -21,7 +21,6 @@ This project adds a plugin for FLAnimatedImage into SDWebImage, for loading anim
   s.source           = { :git => 'https://github.com/DreamPiggy/SDWebImageFLPlugin.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'SDWebImageFLPlugin/Classes/**/*', 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.h'
   s.module_map = 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.modulemap'
