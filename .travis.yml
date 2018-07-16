@@ -28,4 +28,4 @@ script:
   - pod lib lint
 
   - echo Build example
-  - xcodebuild test -enableCodeCoverage YES -workspace Example/SDWebImageFLPlugin.xcworkspace -scheme SDWebImageFLPlugin-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+  - xcodebuild test -enableCodeCoverage YES -workspace Example/SDWebImageFLPlugin.xcworkspace -scheme SDWebImageFLPlugin-Example -sdk iphonesimulator PLATFORM_NAME=iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
