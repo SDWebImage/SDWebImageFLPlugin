@@ -8,25 +8,17 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageFLPlugin'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SDWebImageFLPlugin.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '1.0.0'
+  s.summary          = 'A FLAnimatedImage plugin for SDWebImage'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This project adds a plugin for FLAnimatedImage into SDWebImage, for loading animated images. FLAnimatedImage is a performant library that handles animated images rendering, while SDWebImage takes care of downloading, caching and loading the images.
                        DESC
 
   s.homepage         = 'https://github.com/DreamPiggy/SDWebImageFLPlugin'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DreamPiggy' => 'lizhuoli1126@126.com' }
   s.source           = { :git => 'https://github.com/DreamPiggy/SDWebImageFLPlugin.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
@@ -34,6 +26,6 @@ TODO: Add long description of the pod here.
   s.source_files = 'SDWebImageFLPlugin/Classes/**/*', 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.h'
   s.module_map = 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.modulemap'
 
-  s.dependency 'SDWebImage/Core'
+  s.dependency 'SDWebImage/Core', '~> 5.0'
   s.dependency 'FLAnimatedImage', '~> 1.0'
 end

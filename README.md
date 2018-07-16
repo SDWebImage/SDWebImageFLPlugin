@@ -1,6 +1,6 @@
 # SDWebImageFLPlugin
 
-[![CI Status](https://img.shields.io/travis/DreamPiggy/SDWebImageFLPlugin.svg?style=flat)](https://travis-ci.org/DreamPiggy/SDWebImageFLPlugin)
+[![CI Status](https://img.shields.io/travis/SDWebImage/SDWebImageFLPlugin.svg?style=flat)](https://travis-ci.org/SDWebImage/SDWebImageFLPlugin)
 [![Version](https://img.shields.io/cocoapods/v/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![License](https://img.shields.io/cocoapods/l/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
