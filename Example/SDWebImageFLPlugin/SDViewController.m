@@ -8,6 +8,7 @@
 
 #import "SDViewController.h"
 #import <SDWebImageFLPlugin/SDWebImageFLPlugin.h>
+#import <FLAnimatedImage/FLAnimatedImageView.h>
 
 @interface SDViewController ()
 
@@ -15,16 +16,13 @@
 
 @implementation SDViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    FLAnimatedImageView *animatedImageView = [[FLAnimatedImageView alloc] initWithFrame:self.view.frame];
+    animatedImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:animatedImageView];
+    [animatedImageView sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/liyong03/YLGIFImage/master/YLGIFImageDemo/YLGIFImageDemo/joy.gif"]];
 }
 
 @end
