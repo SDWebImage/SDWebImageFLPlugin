@@ -27,8 +27,8 @@ before_install:
 script:
   - set -o pipefail
 
-#  - echo Check if the library described by the podspec can be built
-#  - pod lib lint
+ # - echo Check if the library described by the podspec can be built
+ # - pod lib lint
 
   - echo Build example
   - pod install --project-directory=Example
