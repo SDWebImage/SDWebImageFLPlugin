@@ -26,6 +26,6 @@ This project adds a plugin for FLAnimatedImage into SDWebImage, for loading anim
   s.source_files = 'SDWebImageFLPlugin/Classes/**/*', 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.h'
   s.module_map = 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.modulemap'
 
-  s.dependency 'SDWebImage/Core', '~> 5.0'
+  s.dependency 'SDWebImage/Core'
   s.dependency 'FLAnimatedImage', '~> 1.0'
 end
