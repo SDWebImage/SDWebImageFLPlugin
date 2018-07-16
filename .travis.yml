@@ -28,4 +28,5 @@ script:
 #  - pod lib lint
 
   - echo Build example
+  - pod install --project-directory=Example
   - xcodebuild build -workspace Example/SDWebImageFLPlugin.xcworkspace -scheme SDWebImageFLPlugin-Example -sdk iphonesimulator -destination 'name=iPhone 6s' ONLY_ACTIVE_ARCH=NO | xcpretty -c
