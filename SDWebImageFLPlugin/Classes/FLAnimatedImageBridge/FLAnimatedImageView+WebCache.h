@@ -9,11 +9,32 @@
 #import <SDWebImage/SDWebImage.h>
 #import "UIImage+SDWebImageFLPlugin.h"
 
+#if __has_include(<FLAnimatedImage/FLAnimatedImage.h>)
+#import <FLAnimatedImage/FLAnimatedImage.h>
+#else
+#import "FLAnimatedImage.h"
+#endif
+
+
 /**
  *  A category for the FLAnimatedImage imageView class that hooks it to the SDWebImage system.
  *  Very similar to the base class category (UIImageView (WebCache))
  */
 @interface FLAnimatedImageView (WebCache)
+
+/**
+ * Optimal frame cache size of FLAnimatedImage during initializer. (1.0.11 version later)
+ * This value will help you set `optimalFrameCacheSize` arg of FLAnimatedImage initializer after image load.
+ * Defaults to 0.
+ */
+@property (nonatomic, assign) NSUInteger sd_optimalFrameCacheSize;
+
+/**
+ * Predrawing control of FLAnimatedImage during initializer. (1.0.11 version later)
+ * This value will help you set `predrawingEnabled` arg of FLAnimatedImage initializer after image load.
+ * Defaults to YES.
+ */
+@property (nonatomic, assign) BOOL sd_predrawingEnabled;
 
 /**
  * Load the image at the given url (either from cache or download) and load it in this imageView. It works with both static and dynamic images
@@ -116,7 +137,7 @@
 - (void)sd_setImageWithURL:(nullable NSURL *)url
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
-                  progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
+                  progress:(nullable SDImageLoaderProgressBlock)progressBlock
                  completed:(nullable SDExternalCompletionBlock)completedBlock;
 
 @end

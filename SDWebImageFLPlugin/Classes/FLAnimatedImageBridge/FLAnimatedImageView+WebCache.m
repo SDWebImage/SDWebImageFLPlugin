@@ -7,8 +7,36 @@
  */
 
 #import "FLAnimatedImageView+WebCache.h"
+#import "objc/runtime.h"
 
 @implementation FLAnimatedImageView (WebCache)
+
+// These property based options will moved to `SDWebImageContext` in 5.x, to allow per-image-request level options instead of per-imageView-level options
+- (NSUInteger)sd_optimalFrameCacheSize {
+    NSUInteger optimalFrameCacheSize = 0;
+    NSNumber *value = objc_getAssociatedObject(self, @selector(sd_optimalFrameCacheSize));
+    if ([value isKindOfClass:[NSNumber class]]) {
+        optimalFrameCacheSize = value.unsignedShortValue;
+    }
+    return optimalFrameCacheSize;
+}
+
+- (void)setSd_optimalFrameCacheSize:(NSUInteger)sd_optimalFrameCacheSize {
+    objc_setAssociatedObject(self, @selector(sd_optimalFrameCacheSize), @(sd_optimalFrameCacheSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)sd_predrawingEnabled {
+    BOOL predrawingEnabled = YES;
+    NSNumber *value = objc_getAssociatedObject(self, @selector(sd_predrawingEnabled));
+    if ([value isKindOfClass:[NSNumber class]]) {
+        predrawingEnabled = value.boolValue;
+    }
+    return predrawingEnabled;
+}
+
+- (void)setSd_predrawingEnabled:(BOOL)sd_predrawingEnabled {
+    objc_setAssociatedObject(self, @selector(sd_predrawingEnabled), @(sd_predrawingEnabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url {
     [self sd_setImageWithURL:url placeholderImage:nil options:0 progress:nil completed:nil];
@@ -34,7 +62,7 @@
     [self sd_setImageWithURL:url placeholderImage:placeholder options:options progress:nil completed:completedBlock];
 }
 
-- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDExternalCompletionBlock)completedBlock {
+- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDImageLoaderProgressBlock)progressBlock completed:(SDExternalCompletionBlock)completedBlock {
     [self sd_setImageWithURL:url placeholderImage:placeholder options:options context:nil progress:progressBlock completed:completedBlock];
 }
 
@@ -42,7 +70,7 @@
           placeholderImage:(nullable UIImage *)placeholder
                    options:(SDWebImageOptions)options
                    context:(nullable SDWebImageContext *)context
-                  progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
+                  progress:(nullable SDImageLoaderProgressBlock)progressBlock
                  completed:(nullable SDExternalCompletionBlock)completedBlock {
     dispatch_group_t group = dispatch_group_create();
     SDWebImageMutableContext *mutableContext;
@@ -76,7 +104,13 @@
                                weakSelf.animatedImage = nil;
                                // Secondly create FLAnimatedImage in global queue because it's time consuming, then set it back
                                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-                                   FLAnimatedImage *animatedImage = [FLAnimatedImage animatedImageWithGIFData:imageData];
+                                   FLAnimatedImage *animatedImage;
+                                   // Compatibility in 4.x for lower version FLAnimatedImage.
+                                   if ([FLAnimatedImage respondsToSelector:@selector(initWithAnimatedGIFData:optimalFrameCacheSize:predrawingEnabled:)]) {
+                                       animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:imageData optimalFrameCacheSize:self.sd_optimalFrameCacheSize predrawingEnabled:self.sd_predrawingEnabled];
+                                   } else {
+                                       animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:imageData];
+                                   }
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        image.sd_FLAnimatedImage = animatedImage;
                                        weakSelf.animatedImage = animatedImage;
