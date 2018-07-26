@@ -19,4 +19,13 @@
  */
 @property (nonatomic, strong, nullable) FLAnimatedImage *sd_FLAnimatedImage;
 
+/**
+ Create a UIImage instance, which bind FLAnimatedImage using the `sd_FLAnimatedImage` on it.
+ This will use `posterImage` on FLAnimatedImage to create a new UIImage and specify the associate object. To avoid cycle retain.
+
+ @param animatedImage FLAnimatedImage instance
+ @return The UIImage which bind FLAnimatedImage on it
+ */
++ (nullable instancetype)sd_imageWithFLAnimatedImage:(nullable FLAnimatedImage *)animatedImage;
+
 @end

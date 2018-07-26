@@ -3,7 +3,7 @@ inhibit_all_warnings!
 
 target 'SDWebImageFLPlugin_Example' do
   pod 'SDWebImageFLPlugin', :path => '../'
-  pod 'SDWebImage/Core', :git => 'https://github.com/rs/SDWebImage.git', :branch => '5.x'
+  pod 'SDWebImage/Core', :path => '../../SDWebImage'
 
   target 'SDWebImageFLPlugin_Tests' do
     inherit! :search_paths
