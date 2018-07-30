@@ -27,9 +27,10 @@
 - (UIImage *)decodedImageWithData:(NSData *)data options:(SDImageCoderOptions *)options {
     SDWebImageContext *context = options[SDImageCoderWebImageContext];
     NSString *operationKey = context[SDWebImageContextSetImageOperationKey];
+    Class imageViewClass = NSClassFromString(operationKey);
     
     // Check if image request come from `FLAnimatedImageView`
-    if ([operationKey isEqualToString:NSStringFromClass(FLAnimatedImageView.class)]) {
+    if (imageViewClass && [imageViewClass isSubclassOfClass:FLAnimatedImageView.class]) {
         // Parse args
         BOOL predrawingEnabled = YES;
         if (context[SDWebImageContextPredrawingEnabled]) {
