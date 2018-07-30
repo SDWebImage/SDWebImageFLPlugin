@@ -26,7 +26,7 @@
     if (!imageRef) {
         return nil;
     }
-    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:posterImage.scale orientation:UIImageOrientationUp];
+    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:posterImage.scale orientation:posterImage.imageOrientation];
     
     image.sd_FLAnimatedImage = animatedImage;
     image.sd_isDecoded = YES; // Avoid force decode and loss the associate object
