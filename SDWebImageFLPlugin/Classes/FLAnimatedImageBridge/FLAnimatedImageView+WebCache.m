@@ -66,11 +66,12 @@ SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"pr
                            }
                            FLAnimatedImage *animatedImage = image.sd_FLAnimatedImage;
                            if (animatedImage) {
+                               // FLAnimatedImage framework contains a bug that cause GIF been rotated if previous rendered image orientation is not Up. We have to call `setImage:` with non-nil image to reset the state. See `https://github.com/rs/SDWebImage/issues/2402`
+                               strongSelf.image = animatedImage.posterImage;
                                strongSelf.animatedImage = animatedImage;
-                               strongSelf.image = nil;
                            } else {
-                               strongSelf.animatedImage = nil;
                                strongSelf.image = image;
+                               strongSelf.animatedImage = nil;
                            }
                        }
                             progress:progressBlock
