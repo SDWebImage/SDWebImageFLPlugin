@@ -26,6 +26,6 @@
  @param animatedImage FLAnimatedImage instance
  @return The UIImage which bind FLAnimatedImage on it
  */
-+ (nullable instancetype)sd_imageWithFLAnimatedImage:(nullable FLAnimatedImage *)animatedImage;
++ (nullable UIImage *)sd_imageWithFLAnimatedImage:(nullable FLAnimatedImage *)animatedImage;
 
 @end

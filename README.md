@@ -12,10 +12,26 @@ SDWebImageFLPlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebImage
 
 By using SDWebImageFLPlugin, you can use all you familiar SDWebImage's loading method, on the `FLAnimatedImageView`, which is the base component of FLAnimatedImage.
 
-To use it, simply make sure you use FLAnimatedImageView instead of UIImageView and import this plugin.
+To use it, simply make sure you use `FLAnimatedImageView` instead of `UIImageView` and import this plugin.
 
 ## Usage
-To load a network image, simply call the View Category method like UIImageView.
+**Important**: From v0.2.0, to load a network image on `FLAnimatedImageView`, at first you must ensure you added the `SDWebImageFLCodcer` to your coders manager (its priority should be higher than `SDImageGIFCoder`, or it will fallback to normal GIF rendering). You can add this on AppDelegate or somewhere earlier than usage, once is enough.
+
++ Objective-C
+
+```objectivec
+// The later added coders contains higher priority
+[SDImageCodersManager.sharedManager addCoder:[SDWebImageFLCoder.sharedCoder]];
+```
+
++ Swift
+
+```swift
+// The later added coders contains higher priority
+SDImageCodersManager.shared.addCoder(SDWebImageFLCoder.shared)
+```
+
+Then, just simply call the View Category method like normal UIImageView.
 
 + Objective-C
 
@@ -31,15 +47,14 @@ let imageView: FLAnimatedImageView
 imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.gif"))
 ```
 
-For placeholder, you can even provide a GIF image which use `FLAnimatedImage` instance (bind it on a `UIImage` instance)
+For placeholder, you can even provide a GIF image which use `FLAnimatedImage` instance (bind it on a `UIImage` instance), to allow GIF placeholder on `FLAnimatedImageView`
 
 + Objective-C
 
 ```objectivec
 FLAnimatedImageView *imageView;
 FLAnimatedImage *animatedImage = [FLAnimatedImage animatedImageWithGIFData:gifData];
-UIImage *placeholder = [UIImage initWithCGImage:animatedImage.posterImage.CGImage];
-placeholder.sd_FLAnimatedImage = animatedImage;
+UIImage *placeholder = [UIImage sd_imageWithFLAnimatedImage:animatedImage];
 [imageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.gif"] placeholderImage:placeholder];
 ```
 
@@ -48,8 +63,7 @@ placeholder.sd_FLAnimatedImage = animatedImage;
 ```swift
 let imageView: FLAnimatedImageView
 let animatedImage = FLAnimatedImage(animatedGIFData: gifData)
-let placeholder = UIImage(cgImage: (animatedImage?.posterImage.cgImage)!)
-placeholder.sd_FLAnimatedImage = animatedImage
+let placeholder = UIImage.sd_image(with: animatedImage)
 imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.gif"), placeholderImage: placeholder)
 ```
 
