@@ -12,6 +12,7 @@
 
 #import <SDWebImageFLPlugin/FLAnimatedImageView+WebCache.h>
 #import <SDWebImageFLPlugin/UIImage+SDWebImageFLPlugin.h>
+#import <SDWebImageFLPlugin/SDWebImageFLCoder.h>
 
 
 FOUNDATION_EXPORT double SDWebImageFLPluginVersionNumber;

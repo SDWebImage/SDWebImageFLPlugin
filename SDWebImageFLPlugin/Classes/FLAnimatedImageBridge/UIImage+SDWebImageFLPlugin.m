@@ -7,6 +7,7 @@
  */
 
 #import "UIImage+SDWebImageFLPlugin.h"
+#import <SDWebImage/SDWebImage.h>
 #import "objc/runtime.h"
 
 @implementation UIImage (SDWebImageFLPlugin)
@@ -17,6 +18,20 @@
 
 - (void)setSd_FLAnimatedImage:(FLAnimatedImage *)sd_FLAnimatedImage {
     objc_setAssociatedObject(self, @selector(sd_FLAnimatedImage), sd_FLAnimatedImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++ (instancetype)sd_imageWithFLAnimatedImage:(FLAnimatedImage *)animatedImage {
+    UIImage *posterImage = animatedImage.posterImage;
+    CGImageRef imageRef = posterImage.CGImage;
+    if (!imageRef) {
+        return nil;
+    }
+    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:posterImage.scale orientation:posterImage.imageOrientation];
+    
+    image.sd_FLAnimatedImage = animatedImage;
+    image.sd_isDecoded = YES; // Avoid force decode and loss the associate object
+    
+    return image;
 }
 
 @end

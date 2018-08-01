@@ -8,7 +8,6 @@
 
 #import "SDViewController.h"
 #import <SDWebImageFLPlugin/SDWebImageFLPlugin.h>
-#import <FLAnimatedImage/FLAnimatedImageView.h>
 
 @interface SDViewController ()
 
@@ -18,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[SDImageCodersManager sharedManager] addCoder:[SDWebImageFLCoder sharedCoder]];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
     FLAnimatedImageView *animatedImageView = [[FLAnimatedImageView alloc] initWithFrame:self.view.frame];
     animatedImageView.contentMode = UIViewContentModeScaleAspectFit;
