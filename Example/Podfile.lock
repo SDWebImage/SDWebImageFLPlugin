@@ -6,17 +6,26 @@ PODS:
     - SDWebImage/Core (>= 5.0.0-beta2)
 
 DEPENDENCIES:
+  - SDWebImage/Core (from `https://github.com/rs/SDWebImage.git`, branch `5.x`)
   - SDWebImageFLPlugin (from `../`)
 
 EXTERNAL SOURCES:
+  SDWebImage:
+    :branch: 5.x
+    :git: https://github.com/rs/SDWebImage.git
   SDWebImageFLPlugin:
     :path: ../
+
+CHECKOUT OPTIONS:
+  SDWebImage:
+    :commit: 2bb336bc12a5690dd11988c0bc8bef2c7318508d
+    :git: https://github.com/rs/SDWebImage.git
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   SDWebImage: 8e4aaf5805e954ad426702adf5a8c012a7f581d1
   SDWebImageFLPlugin: 6661abba103bcdc5568d7921b2d46783f8bf5d86
 
-PODFILE CHECKSUM: 1f8ca120961078fc59296ae5aa436c8f3baf0e67
+PODFILE CHECKSUM: d45303c99b143f5fd7d828ef30667c31060a0484
 
 COCOAPODS: 1.4.0

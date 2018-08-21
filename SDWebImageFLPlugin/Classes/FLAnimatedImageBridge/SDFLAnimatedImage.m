@@ -8,6 +8,9 @@
 
 #import "SDFLAnimatedImage.h"
 
+SDWebImageContextOption _Nonnull const SDWebImageContextOptimalFrameCacheSize = @"optimalFrameCacheSize";
+SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"predrawingEnabled";
+
 @interface SDFLAnimatedImage ()
 
 @property (nonatomic, strong, nullable) FLAnimatedImage *animatedImage;
@@ -48,11 +51,29 @@
 }
 
 - (instancetype)initWithData:(NSData *)data scale:(CGFloat)scale {
-    FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:data];
+    return [self initWithData:data scale:scale options:nil];
+}
+
+- (instancetype)initWithData:(NSData *)data scale:(CGFloat)scale options:(SDImageCoderOptions *)options {
+    BOOL predrawingEnabled = YES;
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    if (context[SDWebImageContextPredrawingEnabled]) {
+        predrawingEnabled = [context[SDWebImageContextPredrawingEnabled] boolValue];
+    }
+    NSUInteger optimalFrameCacheSize = 0;
+    if (context[SDWebImageContextOptimalFrameCacheSize]) {
+        optimalFrameCacheSize = [context[SDWebImageContextOptimalFrameCacheSize] unsignedIntegerValue];
+    }
+    FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:data optimalFrameCacheSize:optimalFrameCacheSize predrawingEnabled:predrawingEnabled];
     if (!animatedImage) {
         return nil;
     }
     return [self initWithAnimatedImage:animatedImage];
+}
+
+- (instancetype)initWithAnimatedCoder:(id<SDAnimatedImageCoder>)animatedCoder scale:(CGFloat)scale {
+    // Does not support progressive load for GIF images at all
+    return nil;
 }
 
 #pragma mark - NSSecureCoding
@@ -62,11 +83,11 @@
     if (self) {
         NSData *animatedImageData = [aDecoder decodeObjectOfClass:[NSData class] forKey:NSStringFromSelector(@selector(animatedImageData))];
         if (!animatedImageData) {
-            return nil;
+            return self;
         }
         FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:animatedImageData];
         if (!animatedImage) {
-            return nil;
+            return self;
         }
         self.animatedImage = animatedImage;
     }
@@ -81,12 +102,7 @@
     }
 }
 
-#pragma mark - SDAnimatedImage
-
-- (instancetype)initWithAnimatedCoder:(id<SDAnimatedImageCoder>)animatedCoder scale:(CGFloat)scale {
-    // Does not support progressive load for GIF images at all
-    return nil;
-}
+#pragma mark - SDAnimatedImageProvider
 
 - (nullable NSData *)animatedImageData {
     return self.animatedImage.data;

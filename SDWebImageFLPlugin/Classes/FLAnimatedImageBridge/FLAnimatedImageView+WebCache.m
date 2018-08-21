@@ -60,7 +60,7 @@
                     placeholderImage:placeholder
                              options:options
                              context:mutableContext
-                       setImageBlock:^(UIImage *image, NSData *imageData) {
+                       setImageBlock:^(UIImage * _Nullable image, NSData * _Nullable imageData, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                            __strong typeof(weakSelf)strongSelf = weakSelf;
                            if (!strongSelf) {
                                return;
