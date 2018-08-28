@@ -8,21 +8,7 @@
 
 #import <SDWebImage/SDWebImage.h>
 #import <FLAnimatedImage/FLAnimatedImage.h>
-#import "UIImage+SDWebImageFLPlugin.h"
-
-/**
- * Optimal frame cache size of FLAnimatedImage during initializer. (1.0.11 version later)
- * This value will help you set `optimalFrameCacheSize` arg of FLAnimatedImage initializer after image load.
- * Defaults to 0.
- */
-FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextOptimalFrameCacheSize;
-/**
- * Predrawing control of FLAnimatedImage during initializer. (1.0.11 version later)
- * This value will help you set `predrawingEnabled` arg of FLAnimatedImage initializer after image load.
- * Defaults to YES.
- */
-FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled;
-
+#import "SDFLAnimatedImage.h"
 
 /**
  *  A category for the FLAnimatedImage imageView class that hooks it to the SDWebImage system.

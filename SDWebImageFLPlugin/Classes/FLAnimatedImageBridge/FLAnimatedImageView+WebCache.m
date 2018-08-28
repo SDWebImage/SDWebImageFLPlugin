@@ -8,9 +8,6 @@
 
 #import "FLAnimatedImageView+WebCache.h"
 
-SDWebImageContextOption _Nonnull const SDWebImageContextOptimalFrameCacheSize = @"optimalFrameCacheSize";
-SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"predrawingEnabled";
-
 @implementation FLAnimatedImageView (WebCache)
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url {
@@ -57,18 +54,21 @@ SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"pr
     } else {
         mutableContext = [NSMutableDictionary dictionary];
     }
-    mutableContext[SDWebImageContextSetImageOperationKey] = NSStringFromClass(self.class);
+    mutableContext[SDWebImageContextAnimatedImageClass] = [SDFLAnimatedImage class];
     __weak typeof(self)weakSelf = self;
     [self sd_internalSetImageWithURL:url
                     placeholderImage:placeholder
                              options:options
                              context:mutableContext
-                       setImageBlock:^(UIImage *image, NSData *imageData) {
+                       setImageBlock:^(UIImage * _Nullable image, NSData * _Nullable imageData, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                            __strong typeof(weakSelf)strongSelf = weakSelf;
                            if (!strongSelf) {
                                return;
                            }
-                           FLAnimatedImage *animatedImage = image.sd_FLAnimatedImage;
+                           FLAnimatedImage *animatedImage;
+                           if ([image isKindOfClass:[SDFLAnimatedImage class]]) {
+                               animatedImage = ((SDFLAnimatedImage *)image).animatedImage;
+                           }
                            if (animatedImage) {
                                // FLAnimatedImage framework contains a bug that cause GIF been rotated if previous rendered image orientation is not Up. We have to call `setImage:` with non-nil image to reset the state. See `https://github.com/rs/SDWebImage/issues/2402`
                                strongSelf.image = animatedImage.posterImage;

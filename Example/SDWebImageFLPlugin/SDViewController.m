@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SDImageCodersManager sharedManager] addCoder:[SDWebImageFLCoder sharedCoder]];
     
     
 	// Do any additional setup after loading the view, typically from a nib.
