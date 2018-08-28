@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![License](https://img.shields.io/cocoapods/l/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImageFLPlugin)
 
 Starting with the SDWebImage 5.0 version, we move the [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) support code from the Core Repo to this stand-alone repo. Core which previously use FLAnimatedImage with SDWebImage can continue to work with this plugin.
 
@@ -60,11 +61,21 @@ imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.gif
 
 ## Installation
 
+#### CocoaPods
+
 SDWebImageFLPlugin is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'SDWebImageFLPlugin'
+```
+
+#### Carthage
+
+SDWebImageFLPlugin is available through [Carthage](https://github.com/Carthage/Carthage).
+
+```
+github "SDWebImage/SDWebImageFLPlugin"
 ```
 
 ## Author
