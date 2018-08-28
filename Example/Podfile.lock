@@ -11,12 +11,17 @@ DEPENDENCIES:
   - SDWebImage/Core (from `https://github.com/rs/SDWebImage.git`, branch `5.x`)
   - SDWebImageFLPlugin (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Expecta
+    - FLAnimatedImage
+
 EXTERNAL SOURCES:
   SDWebImage:
     :branch: 5.x
     :git: https://github.com/rs/SDWebImage.git
   SDWebImageFLPlugin:
-    :path: ../
+    :path: "../"
 
 CHECKOUT OPTIONS:
   SDWebImage:
@@ -31,4 +36,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8799d7ffb8110aa236576014629fd649a82f0bc4
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
