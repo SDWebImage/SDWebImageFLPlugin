@@ -1,6 +1,7 @@
 use_frameworks!
 inhibit_all_warnings!
 platform :ios, '8.0'
+install! 'cocoapods', :share_schemes_for_development_pods => ['SDWebImageFLPlugin']
 
 target 'SDWebImageFLPlugin_Example' do
   pod 'SDWebImageFLPlugin', :path => '../'

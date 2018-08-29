@@ -1,2 +1,2 @@
 github "Flipboard/FLAnimatedImage" "1.0.14"
-github "rs/SDWebImage" "5.0.0-beta2"
+github "rs/SDWebImage" "2bb336bc12a5690dd11988c0bc8bef2c7318508d"
