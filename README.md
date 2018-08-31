@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImageFLPlugin)
+[![codecov](https://codecov.io/gh/SDWebImage/SDWebImageFLPlugin/branch/master/graph/badge.svg)](https://codecov.io/gh/SDWebImage/SDWebImageFLPlugin)
 
 Starting with the SDWebImage 5.0 version, we move the [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) support code from the Core Repo to this stand-alone repo. Core which previously use FLAnimatedImage with SDWebImage can continue to work with this plugin.
 
