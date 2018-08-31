@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3268B08D21394656007B9EA8 /* TestImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3268B08C21394656007B9EA8 /* TestImage.gif */; };
 		327086A021355619004E2A5A /* SDTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270869E21355618004E2A5A /* SDTestCase.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 		1E432E088FA07DCA744C9DEC /* Pods-SDWebImageFLPlugin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageFLPlugin_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2B3606C01CAAC9EC78DABB43 /* Pods-SDWebImageFLPlugin_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageFLPlugin_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3161D0000296D73AB1C062A6 /* Pods-SDWebImageFLPlugin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageFLPlugin_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDWebImageFLPlugin_Example/Pods-SDWebImageFLPlugin_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		3268B08C21394656007B9EA8 /* TestImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TestImage.gif; sourceTree = "<group>"; };
 		3270869E21355618004E2A5A /* SDTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTestCase.m; sourceTree = "<group>"; };
 		3270869F21355618004E2A5A /* SDTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTestCase.h; sourceTree = "<group>"; };
 		45AC849DC5B0648E2C65DDFA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3268B08B2139463E007B9EA8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3268B08C21394656007B9EA8 /* TestImage.gif */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3268B08B2139463E007B9EA8 /* Images */,
 				3270869F21355618004E2A5A /* SDTestCase.h */,
 				3270869E21355618004E2A5A /* SDTestCase.m */,
 				6003F5BB195388D20070C39A /* SDWebCacheCategoriesTests.m */,
@@ -293,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3268B08D21394656007B9EA8 /* TestImage.gif in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
