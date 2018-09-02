@@ -53,15 +53,6 @@
     [self waitForExpectationsWithCommonTimeout];
 }
 
-// Since `SDFLAnimatedImage` confroms to `SDAnimatedImage` protocol, it should be compatible for `SDAnimatedImageView` rendering. Maybe this may be changed in the future but currently add this test as well.
-- (void)testSDFLAnimatedImageWorksForSDAnimatedImageView {
-    SDAnimatedImageView *imageView = [SDAnimatedImageView new];
-    SDFLAnimatedImage *image = [SDFLAnimatedImage imageWithData:[self testGIFData]];
-    imageView.image = image;
-    expect(imageView.image).notTo.beNil();
-    expect(imageView.currentFrame).notTo.beNil(); // current frame
-}
-
 #pragma mark - Util
 
 - (NSString *)testGIFPath {

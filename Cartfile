@@ -1,2 +1,2 @@
-github "rs/SDWebImage" "5.x"
+github "rs/SDWebImage" >= 5.0
 github "Flipboard/FLAnimatedImage" >= 1.0.11
