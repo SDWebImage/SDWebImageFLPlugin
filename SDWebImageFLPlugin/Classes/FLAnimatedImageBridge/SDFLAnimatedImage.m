@@ -7,6 +7,7 @@
  */
 
 #import "SDFLAnimatedImage.h"
+#import <objc/runtime.h>
 
 SDWebImageContextOption _Nonnull const SDWebImageContextOptimalFrameCacheSize = @"optimalFrameCacheSize";
 SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"predrawingEnabled";
@@ -122,6 +123,25 @@ SDWebImageContextOption _Nonnull const SDWebImageContextPredrawingEnabled = @"pr
 
 - (NSUInteger)animatedImageLoopCount {
     return self.animatedImage.loopCount;
+}
+
+@end
+
+@implementation SDFLAnimatedImage (MemoryCacheCost)
+
+- (NSUInteger)sd_memoryCost {
+    NSNumber *value = objc_getAssociatedObject(self, @selector(sd_memoryCost));
+    if (value != nil) {
+        return value.unsignedIntegerValue;
+    }
+    
+    FLAnimatedImage *animatedImage = self.animatedImage;
+    CGImageRef imageRef = animatedImage.posterImage.CGImage; // / Guaranteed to be loaded, and guaranteed to be CGImage based
+    NSUInteger bytesPerFrame = CGImageGetBytesPerRow(imageRef) * CGImageGetHeight(imageRef);
+    NSUInteger frameCacheSizeCurrent = animatedImage.frameCacheSizeCurrent; // [1...frame count], more suitable than raw frame count because FLAnimatedImage internal actually store a buffer size but not full frames (they called `window`)
+    NSUInteger animatedImageCost = frameCacheSizeCurrent * bytesPerFrame;
+
+    return animatedImageCost;
 }
 
 @end
