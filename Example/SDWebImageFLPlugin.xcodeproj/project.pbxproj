@@ -357,7 +357,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -366,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDWebImageFLPlugin_Tests/Pods-SDWebImageFLPlugin_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF64E2304E579A78AAF3F04C /* [CP] Embed Pods Frameworks */ = {
@@ -375,7 +375,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageFLPlugin_Example/Pods-SDWebImageFLPlugin_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageFLPlugin_Example/Pods-SDWebImageFLPlugin_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework",
@@ -388,7 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDWebImageFLPlugin_Example/Pods-SDWebImageFLPlugin_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDWebImageFLPlugin_Example/Pods-SDWebImageFLPlugin_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

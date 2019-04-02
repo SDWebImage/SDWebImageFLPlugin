@@ -1,39 +1,31 @@
 PODS:
   - Expecta (1.0.6)
   - FLAnimatedImage (1.0.12)
-  - SDWebImage/Core (5.0.0-beta3)
-  - SDWebImageFLPlugin (0.2.1):
+  - SDWebImage/Core (5.0.0)
+  - SDWebImageFLPlugin (0.2.2):
     - FLAnimatedImage (>= 1.0.11)
-    - SDWebImage/Core (>= 5.0.0-beta3)
+    - SDWebImage/Core (~> 5.0)
 
 DEPENDENCIES:
   - Expecta
-  - SDWebImage/Core (from `https://github.com/rs/SDWebImage.git`, branch `5.x`)
   - SDWebImageFLPlugin (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Expecta
     - FLAnimatedImage
+    - SDWebImage
 
 EXTERNAL SOURCES:
-  SDWebImage:
-    :branch: 5.x
-    :git: https://github.com/rs/SDWebImage.git
   SDWebImageFLPlugin:
     :path: "../"
-
-CHECKOUT OPTIONS:
-  SDWebImage:
-    :commit: d989549b34b7726651ff6bd5a9c63b7fb8ab3dec
-    :git: https://github.com/rs/SDWebImage.git
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  SDWebImage: e52654ceef9fdc19f4c612d64a5b6d3f05dd81a4
-  SDWebImageFLPlugin: 58ef97660cb99eea59cef8ad7ca8619d7857a743
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  SDWebImageFLPlugin: cdba433fbe2e45d313b38a0f4154fbb6e98d820c
 
-PODFILE CHECKSUM: ef4d5aab990dee0b737fc5290edda501cf2d3184
+PODFILE CHECKSUM: d7af905f9f3f5fc5a47d747378403882dde90df3
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

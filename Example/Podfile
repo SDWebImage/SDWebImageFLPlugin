@@ -5,7 +5,6 @@ install! 'cocoapods', :share_schemes_for_development_pods => ['SDWebImageFLPlugi
 
 target 'SDWebImageFLPlugin_Example' do
   pod 'SDWebImageFLPlugin', :path => '../'
-  pod 'SDWebImage/Core', :git => 'https://github.com/rs/SDWebImage.git', :branch => '5.x'
 
   target 'SDWebImageFLPlugin_Tests' do
     inherit! :search_paths
