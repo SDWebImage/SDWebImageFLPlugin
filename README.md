@@ -35,7 +35,7 @@ imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.gif
 
 The magic because we create one custom animation class called `SDFLAnimatedImage` to load GIF images, and use `UIImage` for normal images.
 
-For placeholder, you can even provide a `FLAnimatedImage` to allow GIF placeholder on `FLAnimatedImageView`
+For placeholder, you can even provide a `FLAnimatedImage` to allow GIF placeholder on `FLAnimatedImageView` using the wrapper class `SDFLAnimatedImage`.
 
 + Objective-C
 
@@ -74,8 +74,6 @@ pod 'SDWebImageFLPlugin'
 #### Carthage
 
 SDWebImageFLPlugin is available through [Carthage](https://github.com/Carthage/Carthage).
-
-Note that because the dependency SDWebImage currently is in beta. You should use `Carthage v0.30.1` or above to support beta [sem-version](https://semver.org/).
 
 ```
 github "SDWebImage/SDWebImageFLPlugin"
