@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageFLPlugin'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'A FLAnimatedImage plugin for SDWebImage'
 
   s.description      = <<-DESC
