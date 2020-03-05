@@ -33,11 +33,22 @@
 
 // Since `SDFLAnimatedImage` confroms to `SDAnimatedImage` protocol, it should be compatible for `SDAnimatedImageView` rendering. Maybe this may be changed in the future but currently add this test as well.
 - (void)testSDFLAnimatedImageWorksForSDAnimatedImageView {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"SDFLAnimatedImage works for SDAnimatedImageView"];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    [window makeKeyAndVisible];
     SDAnimatedImageView *imageView = [SDAnimatedImageView new];
+    [window addSubview:imageView];
     SDFLAnimatedImage *image = [SDFLAnimatedImage imageWithData:[self testGIFData]];
     imageView.image = image;
     expect(imageView.image).notTo.beNil();
-    expect(imageView.currentFrame).notTo.beNil(); // current frame
+    [imageView startAnimating];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        expect(imageView.currentFrame).notTo.beNil(); // current frame
+        [expectation fulfill];
+        [imageView removeFromSuperview];
+        [window removeFromSuperview];
+    });
+    [self waitForExpectationsWithCommonTimeout];
 }
 
 #pragma mark - Util
