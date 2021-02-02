@@ -59,8 +59,8 @@ imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.gif
 
 ## Requirements
 
-+ iOS 8+
-+ Xcode 9+
++ iOS 9+
++ Xcode 11+
 
 ## Installation
 

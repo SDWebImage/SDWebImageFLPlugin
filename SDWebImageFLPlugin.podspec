@@ -20,11 +20,11 @@ This project adds a plugin for FLAnimatedImage into SDWebImage, for loading anim
   s.author           = { 'DreamPiggy' => 'lizhuoli1126@126.com' }
   s.source           = { :git => 'https://github.com/SDWebImage/SDWebImageFLPlugin.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'SDWebImageFLPlugin/Classes/**/*', 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.h'
   s.module_map = 'SDWebImageFLPlugin/Module/SDWebImageFLPlugin.modulemap'
 
-  s.dependency 'SDWebImage/Core', '~> 5.6'
+  s.dependency 'SDWebImage/Core', '~> 5.10'
   s.dependency 'FLAnimatedImage', '>= 1.0.11'
 end
