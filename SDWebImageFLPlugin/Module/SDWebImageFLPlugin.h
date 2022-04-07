@@ -10,8 +10,16 @@
 #endif
 #endif
 
-#import <SDWebImageFLPlugin/FLAnimatedImageView+WebCache.h>
-#import <SDWebImageFLPlugin/SDFLAnimatedImage.h>
+#if __has_include(<SDWebImage/SDWebImage.h>)
+#import <SDWebImage/SDWebImage.h>
+#else
+@import SDWebImage;
+#endif
+#if __has_include(<FLAnimatedImage/FLAnimatedImage.h>)
+#import <FLAnimatedImage/FLAnimatedImage.h>
+#else
+@import FLAnimatedImage;
+#endif
 
 
 FOUNDATION_EXPORT double SDWebImageFLPluginVersionNumber;
