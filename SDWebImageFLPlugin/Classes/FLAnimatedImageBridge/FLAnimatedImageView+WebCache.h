@@ -6,8 +6,16 @@
  * file that was distributed with this source code.
  */
 
+#if __has_include(<SDWebImage/SDWebImage.h>)
 #import <SDWebImage/SDWebImage.h>
+#else
+@import SDWebImage;
+#endif
+#if __has_include(<FLAnimatedImage/FLAnimatedImage.h>)
 #import <FLAnimatedImage/FLAnimatedImage.h>
+#else
+@import FLAnimatedImage;
+#endif
 #import "SDFLAnimatedImage.h"
 
 /**
