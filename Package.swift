@@ -18,10 +18,10 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/SDWebImage/SDWebImage.git",
-            from: "5.0.0"
+            from: "5.10.0"
         ),
         .package(
-            url: "https://github.com/FLAnimatedImage/FLAnimatedImage.git",
+            url: "https://github.com/Flipboard/FLAnimatedImage.git",
             from: "1.0.11"
         )
     ],
@@ -32,8 +32,11 @@ let package = Package(
             name: "SDWebImageFLPlugin",
             dependencies: ["SDWebImage", "FLAnimatedImage"],
             path: "SDWebImageFLPlugin",
-            sources: ["Classes/FLAnimatedImageBridge", "Modules/SDWebImageFLPlugin.h"],
-            publicHeadersPath: ["Modules"]
+            sources: ["Classes/FLAnimatedImageBridge"],
+            publicHeadersPath: "Modules",
+            cSettings: [
+                .headerSearchPath("Modules")
+            ]
         )
     ]
 )
