@@ -13,7 +13,6 @@
 #import <SDWebImageFLPlugin/FLAnimatedImageView+WebCache.h>
 #import <SDWebImageFLPlugin/SDFLAnimatedImage.h>
 
-
 FOUNDATION_EXPORT double SDWebImageFLPluginVersionNumber;
 FOUNDATION_EXPORT const unsigned char SDWebImageFLPluginVersionString[];
 
