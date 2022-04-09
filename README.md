@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![License](https://img.shields.io/cocoapods/l/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageFLPlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageFLPlugin)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImageFLPlugin)
 [![codecov](https://codecov.io/gh/SDWebImage/SDWebImageFLPlugin/branch/master/graph/badge.svg)](https://codecov.io/gh/SDWebImage/SDWebImageFLPlugin)
 
@@ -79,6 +80,18 @@ SDWebImageFLPlugin is available through [Carthage](https://github.com/Carthage/C
 
 ```
 github "SDWebImage/SDWebImageFLPlugin"
+```
+
+#### Swift Package Manager (Xcode 11+)
+
+SDWebImageFLPlugin is available through [Swift Package Manager](https://swift.org/package-manager).
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImageFLPlugin.git", from: "0.6.0")
+    ]
+)
 ```
 
 ## Author
